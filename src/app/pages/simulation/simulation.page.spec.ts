@@ -1,17 +1,17 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { SimulationComponent } from './simulation.page';
+import { SimulationPage } from './simulation.page';
 
 describe('SimulationComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [RouterTestingModule],
-      declarations: [SimulationComponent],
+      declarations: [SimulationPage],
     }).compileComponents();
   });
 
   it('should create the simulation', () => {
-    const fixture = TestBed.createComponent(SimulationComponent);
+    const fixture = TestBed.createComponent(SimulationPage);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });

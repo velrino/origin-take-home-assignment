@@ -12,6 +12,10 @@
         "upload": "npx ngh --repo=git@github.com:velrino/origin-take-home-assignment.git --name=velrino --email=denismagalhaesvelrino@gmail.com  --branch=gh-pages --dir=dist/"
     },
     "private": true,
+    "engines": {
+        "npm": ">=6.0.0",
+        "node": ">=12.0.0"
+    },
     "dependencies": {
         "@angular/animations": "~11.0.3",
         "@angular/common": "~11.0.3",

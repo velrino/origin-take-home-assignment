@@ -1,0 +1,44 @@
+/* Space */
+
+.mt-3 {
+  margin-top: 3rem !important;
+}
+
+.pb-3 {
+  padding-bottom: 2rem !important;
+}
+
+.pv-3 {
+  padding-top: 2rem !important;
+  padding-bottom: 2rem !important;
+}
+
+.ph-3 {
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+}
+
+/* Text */
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-color-blue {
+  color: #1b31a8;
+}
+
+.text-color-grey {
+  color: #708797;
+}
+
+/* Position */
+
+.vertical-center {
+  min-height: 100%;
+  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh;
+  /* These two lines are counted as one :-)       */
+  display: flex;
+  align-items: center;
+}

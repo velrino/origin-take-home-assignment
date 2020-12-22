@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
+export enum KEY_CODE {
+  RIGHT_ARROW = 'ArrowRight',
+  LEFT_ARROW = 'ArrowLeft',
+}
 @Component({
   selector: 'app-input-date',
   templateUrl: './input-date.component.html',
@@ -7,8 +11,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InputDateComponent {
   locale = 'en-US';
-  todayDate: any = new Date().setHours(0, 0, 0, 0);
-  actualDate: any;
+  todayDate: number = new Date().setHours(0, 0, 0, 0);
+  actualDate: Date;
   month = '';
   year = 0;
   lastCalculateMonth = false;
@@ -17,21 +21,30 @@ export class InputDateComponent {
     this.handleDate(null);
   }
 
-  calculateMonth(increment = true): void {
+  calculateMonth(incrementMonth = true): void {
     const { actualDate } = this;
     const getMonth = actualDate.getMonth();
-    const month = increment ? getMonth + 1 : getMonth - 1;
-    const date = actualDate.setMonth(month);
+    const actualMonth = incrementMonth ? getMonth + 1 : getMonth - 1;
+    const newActualDate = actualDate.setMonth(actualMonth);
     this.lastCalculateMonth =
       new Date(this.todayDate).setHours(0, 0, 0, 0) <=
-      new Date(date).setHours(0, 0, 0, 0);
-    this.handleDate(date);
+      new Date(newActualDate).setHours(0, 0, 0, 0);
+    this.handleDate(new Date(newActualDate));
   }
 
-  handleDate(date: Date | null): void {
+  handleDate(dateInformed: Date | null): void {
     this.actualDate =
-      this.lastCalculateMonth && date ? new Date(date) : new Date();
+      this.lastCalculateMonth && dateInformed ? dateInformed : new Date();
     this.month = this.actualDate.toLocaleString(this.locale, { month: 'long' });
     this.year = this.actualDate.getFullYear();
+  }
+
+  @HostListener('window:keyup', ['$event'])
+  listenKeyboardEvent(event: KeyboardEvent): void {
+    if (event.key === KEY_CODE.RIGHT_ARROW) {
+      this.calculateMonth();
+    } else if (event.key === KEY_CODE.LEFT_ARROW) {
+      this.calculateMonth(false);
+    }
   }
 }

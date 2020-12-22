@@ -22,12 +22,20 @@
 
 /* Space */
 
+.mb-3 {
+  margin-bottom: 3rem !important;
+}
+
 .mt-1 {
   margin-top: 1rem !important;
 }
 
 .mt-1-5 {
   margin-top: 1.5rem !important;
+}
+
+.mt-2 {
+  margin-top: 2rem !important;
 }
 
 .mt-3 {
@@ -149,7 +157,7 @@
 /* Text Colors */
 
 .text-color-dark-blue {
-  color: #1b31a8;
+  color: $brandColorPrimary;
 }
 
 .text-color-pure-blue {
@@ -188,4 +196,29 @@ input {
   border-radius: 4px;
   padding: 0.813rem;
   width: 100%;
+}
+
+.btn {
+  padding: 1rem;
+  background-color: $brandColorPrimary;
+  border-radius: 32px;
+  color: white;
+  border: none;
+  font-family: Work Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  width: 75%;
+  @media (max-width: 769px) {
+    width: 100%;
+  }
+}
+
+.margin-auto {
+  margin: auto;
+}
+
+.display-block {
+  display: block;
 }

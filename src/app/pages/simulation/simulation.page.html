@@ -23,7 +23,16 @@
         <div class="row">
           <div class="col-md-7 mt-1 mobile-without-padding pl-0">
             <label for="total_amout">Total amount</label>
-            <input type="text" id="male" />
+            <div class="input-icon">
+              <input
+                type="text"
+                placeholder="0.00"
+                id="total_amout"
+                currencyMask
+                [options]="customCurrencyMaskConfig"
+              />
+              <img src="assets/icons/currency.svg" />
+            </div>
           </div>
           <div class="col-md-5 mt-1 mobile-without-padding pr-0">
             <label for="reach_goal">Reach goal by</label>

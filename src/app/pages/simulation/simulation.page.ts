@@ -5,4 +5,14 @@ import { Component } from '@angular/core';
   templateUrl: './simulation.page.html',
   styleUrls: ['./simulation.page.scss'],
 })
-export class SimulationPage {}
+export class SimulationPage {
+  customCurrencyMaskConfig = {
+    align: 'left',
+    allowNegative: false,
+    allowZero: false,
+    // decimal: ",",
+    precision: 2,
+    prefix: '',
+    // thousands: "."
+  };
+}

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NgxCurrencyModule } from 'ngx-currency';
 
 import {
   AppRoutingModule,
@@ -9,7 +10,7 @@ import {
 
 @NgModule({
   declarations,
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, NgxCurrencyModule],
   providers: [],
   bootstrap,
 })

@@ -235,6 +235,38 @@ input {
   width: 100%;
 }
 
+.input-icon {
+  position: relative;
+}
+
+.input-icon > img {
+  position: absolute;
+  display: block;
+  transform: translate(0, -50%);
+  top: 50%;
+  pointer-events: none;
+  width: 25px;
+  text-align: center;
+  font-style: normal;
+  margin-left: 0.75rem;
+}
+
+.input-icon > input {
+  // padding-left: 25px;
+  padding-left: 2.75rem;
+  padding-right: 0;
+}
+
+.input-icon-right > i {
+  right: 0;
+}
+
+.input-icon-right > input {
+  padding-left: 0;
+  padding-right: 25px;
+  text-align: right;
+}
+
 .btn {
   padding: 1rem;
   background-color: $brandColorPrimary;

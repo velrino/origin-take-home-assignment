@@ -6,10 +6,8 @@ import {
   OnInit,
 } from '@angular/core';
 
-export enum KEY_CODE {
-  RIGHT_ARROW = 'ArrowRight',
-  LEFT_ARROW = 'ArrowLeft',
-}
+import { KEY_CODE } from '../../enums/keyboard';
+
 @Component({
   selector: 'app-input-date',
   templateUrl: './input-date.component.html',
@@ -18,25 +16,22 @@ export enum KEY_CODE {
 export class InputDateComponent implements OnInit {
   @Output() dateInformed = new EventEmitter<Date>();
   locale = 'en-US';
-  todayDate: number = new Date().setHours(0, 0, 0, 0);
-  actualDate: Date;
+  todayDate: number;
+  actualDate: Date = new Date();
   month = '';
   year = 0;
   lastCalculateMonth = false;
 
   constructor() {
-    this.handleDate(null);
+    this.todayDate = this.incrementMonth(new Date(), true);
   }
 
   ngOnInit(): void {
-    this.dateInformed.emit(this.actualDate);
+    this.calculateMonth(true);
   }
 
   calculateMonth(incrementMonth = true): void {
-    const { actualDate } = this;
-    const getMonth = actualDate.getMonth();
-    const actualMonth = incrementMonth ? getMonth + 1 : getMonth - 1;
-    const newActualDate = actualDate.setMonth(actualMonth);
+    const newActualDate = this.incrementMonth(this.actualDate, incrementMonth);
     this.lastCalculateMonth =
       new Date(this.todayDate).setHours(0, 0, 0, 0) <=
       new Date(newActualDate).setHours(0, 0, 0, 0);
@@ -45,10 +40,20 @@ export class InputDateComponent implements OnInit {
 
   handleDate(dateInformed: Date | null): void {
     this.actualDate =
-      this.lastCalculateMonth && dateInformed ? dateInformed : new Date();
+      this.lastCalculateMonth && dateInformed
+        ? dateInformed
+        : new Date(this.incrementMonth(new Date(), true));
     this.month = this.actualDate.toLocaleString(this.locale, { month: 'long' });
     this.year = this.actualDate.getFullYear();
     this.dateInformed.emit(this.actualDate);
+  }
+
+  incrementMonth(date: Date, increment = true, months = 1): number {
+    const getMonth = date.getMonth();
+    const actualMonth = increment ? getMonth + months : getMonth - months;
+    const newActualDate = date.setMonth(actualMonth);
+
+    return newActualDate;
   }
 
   @HostListener('window:keyup', ['$event'])

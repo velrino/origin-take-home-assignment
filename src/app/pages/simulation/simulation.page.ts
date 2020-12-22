@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { CurrencyMaskInputMode } from 'ngx-currency';
 
 import { InputDateInformedDto } from '../../shared/component/input-date/input-date-informed.interface';
 
@@ -12,13 +13,16 @@ export class SimulationPage {
   customCurrencyMaskConfig = {
     align: 'left',
     allowNegative: false,
-    allowZero: false,
+    allowZero: true,
     precision: 2,
     prefix: '',
+    inputMode: CurrencyMaskInputMode.FINANCIAL,
   };
   form = new FormGroup({
-    totalAmout: new FormControl(0, Validators.minLength(2)),
-    amountByMonths: new FormControl(),
+    totalAmout: new FormControl(null, [
+      Validators.required,
+      Validators.minLength(2),
+    ]),
   });
   amountByMonths = 0;
   dateInformedData: InputDateInformedDto;
@@ -28,7 +32,6 @@ export class SimulationPage {
     const goal = this.form.get('totalAmout')?.value;
     if (goal > 0) {
       this.amountByMonths = goal / this.months;
-      console.log(this.amountByMonths);
     }
   }
 

@@ -23,13 +23,13 @@
             <div class="input-icon">
               <input
                 type="text"
-                placeholder="0.00"
                 id="total_amout"
                 class="input-form"
                 formControlName="totalAmout"
                 currencyMask
                 [options]="customCurrencyMaskConfig"
                 (keyup)="calculateGoalByMonth()"
+                maxlength="9"
               />
               <img src="assets/icons/currency.svg" />
             </div>
@@ -45,16 +45,16 @@
         <div
           class="row align-items-center mt-1-5 border-rounded-8 border-solid-1 border-color-light-grayish-blue"
         >
-          <div class="col-8 pv-1-5">
+          <div class="col-6 pv-1-5">
             <h3
               class="font-family-work-sans font-size-20 font-size-sm-18 font-weight-normal"
             >
               Monthly amount
             </h3>
           </div>
-          <div class="col-4">
+          <div class="col-6">
             <h3
-              class="font-family-rubik font-size-32 font-size-sm-24 font-weight-bold text-color-pure-blue text-right"
+              class="font-family-rubik font-size-32 font-size-sm-24 font-weight-bold text-color-pure-blue text-right text-truncate"
             >
               {{formatMoney(amountByMonths)}}
             </h3>
@@ -71,7 +71,12 @@
         </div>
         <!-- Button -->
         <div class="row align-items-center mt-2">
-          <button class="btn display-block margin-auto">Confirm</button>
+          <button
+            class="btn display-block margin-auto"
+            [disabled]="!form.valid"
+          >
+            Confirm
+          </button>
         </div>
       </div>
     </div>

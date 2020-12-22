@@ -1,11 +1,55 @@
+/* Background colors */
+
+.bg-color-light-grayish-blue {
+  background-color: #f4f8fa;
+}
+
+.border-color-light-grayish-blue {
+  border-color: #e9eef2;
+  border: 1px solid #e9eef2;
+}
+
+.border-solid-1 {
+  border-style: solid;
+  border-width: 1px;
+}
+
+/* Rounded */
+
+.border-rounded-8 {
+  border-radius: 8px !important;
+}
+
 /* Space */
 
 .mt-1 {
   margin-top: 1rem !important;
 }
 
+.mt-1-5 {
+  margin-top: 1.5rem !important;
+}
+
 .mt-3 {
   margin-top: 3rem !important;
+}
+
+.pl-0 {
+  padding-left: 0px;
+}
+
+.pr-0 {
+  padding-right: 0px;
+}
+
+.pv-1-5 {
+  padding-top: 1.5rem !important;
+  padding-bottom: 1.5rem !important;
+}
+
+.ph-2 {
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
 }
 
 .pb-3 {
@@ -22,22 +66,94 @@
   padding-right: 2.5rem !important;
 }
 
-/* Text */
+/* Font size */
+
+.font-size-12 {
+  font-size: 12px;
+}
 
 .font-size-14 {
   font-size: 14px;
+}
+
+.font-size-18 {
+  font-size: 18px;
 }
 
 .font-size-20 {
   font-size: 20px;
 }
 
+.font-size-24 {
+  font-size: 24px;
+}
+
+/* Font Weight */
+
+.font-weight-bold {
+  font-weight: bold;
+}
+
+.font-weight-normal {
+  font-weight: normal;
+}
+
+/* Font Family */
+
+.font-family-rubik {
+  font-family: Rubik;
+}
+
+.font-family-work-sans {
+  font-family: Work Sans;
+}
+
+/* Text Position */
+
+.text-left {
+  text-align: left !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
 .text-center {
   text-align: center !important;
 }
 
-.text-color-blue {
+@media (min-width: 320px) {
+  .text-sm-left {
+    text-align: left !important;
+  }
+  .text-sm-right {
+    text-align: right !important;
+  }
+  .text-sm-center {
+    text-align: center !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .text-md-left {
+    text-align: left !important;
+  }
+  .text-md-right {
+    text-align: right !important;
+  }
+  .text-md-center {
+    text-align: center !important;
+  }
+}
+
+/* Text Colors */
+
+.text-color-dark-blue {
   color: #1b31a8;
+}
+
+.text-color-pure-blue {
+  color: #0079ff;
 }
 
 .text-color-grey {

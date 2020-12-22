@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 
 import { KEY_CODE } from '../../enums/keyboard';
+import { InputDateInformedDto } from './input-date-informed.interface';
 
 @Component({
   selector: 'app-input-date',
@@ -14,7 +15,7 @@ import { KEY_CODE } from '../../enums/keyboard';
   styleUrls: ['./input-date.component.scss'],
 })
 export class InputDateComponent implements OnInit {
-  @Output() dateInformed = new EventEmitter<Date>();
+  @Output() dateInformed = new EventEmitter<InputDateInformedDto>();
   locale = 'en-US';
   todayDate: number;
   actualDate: Date = new Date();
@@ -45,7 +46,11 @@ export class InputDateComponent implements OnInit {
         : new Date(this.incrementMonth(new Date(), true));
     this.month = this.actualDate.toLocaleString(this.locale, { month: 'long' });
     this.year = this.actualDate.getFullYear();
-    this.dateInformed.emit(this.actualDate);
+    this.dateInformed.emit({
+      date: this.actualDate,
+      month: this.month,
+      year: this.year,
+    });
   }
 
   incrementMonth(date: Date, increment = true, months = 1): number {

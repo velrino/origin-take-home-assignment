@@ -7,7 +7,7 @@
       <h2 class="text-center text-color-dark-blue pb-3 font-weight-normal">
         Let's plan your <strong>saving goal.</strong>
       </h2>
-      <div class="card pv-3 ph-3 mb-3">
+      <div class="card pv-3 ph-3 mb-3" [formGroup]="form">
         <div class="row align-items-center">
           <img src="assets/icons/home.svg" class="col-md-2 col-3 pl-0" />
           <div class="col-8 px-0">
@@ -29,8 +29,10 @@
                 placeholder="0.00"
                 id="total_amout"
                 class="input-form"
+                formControlName="totalAmout"
                 currencyMask
                 [options]="customCurrencyMaskConfig"
+                (keyup)="calculateGoalByMonth()"
               />
               <img src="assets/icons/currency.svg" />
             </div>
@@ -57,13 +59,16 @@
             <h3
               class="font-family-rubik font-size-32 font-size-sm-24 font-weight-bold text-color-pure-blue text-right"
             >
-              $521
+              {{formatMoney(amountByMonths)}}
             </h3>
           </div>
           <div class="col-12 bg-color-light-grayish-blue pv-1-5 ph-2">
             <p class="text-sm-center text-md-left font-size-12 font-size-sm-14">
-              You’re planning <strong>48 monthly deposits</strong> to reach your
-              <strong>$25,000</strong> goal by <strong>October 2020</strong>.
+              You’re planning <strong>{{months}} monthly deposits</strong> to
+              reach your <strong>{{totalAmountFormated()}}</strong> goal by
+              <strong
+                >{{dateInformedData.month}} {{dateInformedData.year}}</strong
+              >.
             </p>
           </div>
         </div>

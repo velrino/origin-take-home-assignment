@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+
+import { InputDateInformedDto } from '../../shared/component/input-date/input-date-informed.interface';
 
 @Component({
   selector: 'app-simulation-page',
@@ -13,8 +16,42 @@ export class SimulationPage {
     precision: 2,
     prefix: '',
   };
+  form = new FormGroup({
+    totalAmout: new FormControl(0, Validators.minLength(2)),
+    amountByMonths: new FormControl(),
+  });
+  amountByMonths = 0;
+  dateInformedData: InputDateInformedDto;
+  months = 1;
 
-  inputDateChange(date: Date): void {
-    console.log(date);
+  calculateGoalByMonth(): void {
+    const goal = this.form.get('totalAmout')?.value;
+    if (goal > 0) {
+      this.amountByMonths = goal / this.months;
+      console.log(this.amountByMonths);
+    }
+  }
+
+  inputDateChange(value: InputDateInformedDto): void {
+    this.dateInformedData = value;
+    this.months = this.diffMonths(value.date);
+    this.calculateGoalByMonth();
+  }
+
+  diffMonths(date: Date): number {
+    let diff = (date.getTime() - new Date().getTime()) / 1000;
+    diff /= 60 * 60 * 24 * 7 * 4;
+    return Math.abs(Math.round(diff));
+  }
+
+  formatMoney(amount: number): string {
+    return Number(amount).toLocaleString('en-US', {
+      style: 'currency',
+      currency: 'USD',
+    });
+  }
+
+  totalAmountFormated(): string {
+    return this.formatMoney(this.form.get('totalAmout')?.value);
   }
 }

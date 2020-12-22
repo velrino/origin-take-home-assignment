@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { NgxCurrencyModule } from 'ngx-currency';
 
 import {
@@ -9,9 +9,10 @@ import {
 } from './app-routing.module';
 
 @NgModule({
+  bootstrap,
   declarations,
   imports: [BrowserModule, AppRoutingModule, NgxCurrencyModule],
   providers: [],
-  bootstrap,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}

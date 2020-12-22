@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 // Components
 import { AppComponent } from './app.component';
+import { InputDateComponent } from './shared/component/input-date/input-date.component';
 // Pages
 import { SimulationPage } from './pages/simulation/simulation.page';
 
@@ -13,7 +14,7 @@ const routes: Routes = [
 
 export const bootstrap = [AppComponent];
 
-export const declarations = [AppComponent, SimulationPage];
+export const declarations = [AppComponent, InputDateComponent, SimulationPage];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

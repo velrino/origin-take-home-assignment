@@ -10,9 +10,11 @@ export class SimulationPage {
     align: 'left',
     allowNegative: false,
     allowZero: false,
-    // decimal: ",",
     precision: 2,
     prefix: '',
-    // thousands: "."
   };
+
+  inputDateChange(date: Date): void {
+    console.log(date);
+  }
 }

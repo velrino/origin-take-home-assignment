@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, EventEmitter, HostListener, Output } from '@angular/core';
 
 export enum KEY_CODE {
   RIGHT_ARROW = 'ArrowRight',
@@ -10,6 +10,7 @@ export enum KEY_CODE {
   styleUrls: ['./input-date.component.scss'],
 })
 export class InputDateComponent {
+  @Output() dateInformed = new EventEmitter<Date>();
   locale = 'en-US';
   todayDate: number = new Date().setHours(0, 0, 0, 0);
   actualDate: Date;
@@ -37,6 +38,7 @@ export class InputDateComponent {
       this.lastCalculateMonth && dateInformed ? dateInformed : new Date();
     this.month = this.actualDate.toLocaleString(this.locale, { month: 'long' });
     this.year = this.actualDate.getFullYear();
+    this.dateInformed.emit(this.actualDate);
   }
 
   @HostListener('window:keyup', ['$event'])

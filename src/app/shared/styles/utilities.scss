@@ -38,6 +38,14 @@
   margin-left: 3.5rem !important;
 }
 
+.ml-1-25 {
+  margin-left: 1.25rem;
+}
+
+.mr-1-25 {
+  margin-right: 1.25rem;
+}
+
 .mt-1 {
   margin-top: 1rem !important;
 }
@@ -96,6 +104,10 @@
 
 .font-size-14 {
   font-size: 14px;
+}
+
+.font-size-16 {
+  font-size: 16px;
 }
 
 .font-size-18 {
@@ -220,7 +232,7 @@ label {
   display: block;
 }
 
-input {
+.input-form {
   color: #4d6475;
   font-family: Rubik;
   font-style: normal;
@@ -233,6 +245,7 @@ input {
   border-radius: 4px;
   padding: 0.813rem;
   width: 100%;
+  max-height: 56px !important;
 }
 
 .input-icon {
@@ -290,4 +303,8 @@ input {
 
 .display-block {
   display: block;
+}
+
+.width-100 {
+  width: 100%;
 }

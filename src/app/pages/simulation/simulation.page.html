@@ -28,6 +28,7 @@
                 type="text"
                 placeholder="0.00"
                 id="total_amout"
+                class="input-form"
                 currencyMask
                 [options]="customCurrencyMaskConfig"
               />
@@ -36,7 +37,32 @@
           </div>
           <div class="col-md-5 mt-1 mobile-without-padding pr-0">
             <label for="reach_goal">Reach goal by</label>
-            <input type="text" id="reach_goal" />
+            <!--  style="padding: .05rem;" -->
+            <div class="input-form p-0">
+              <div class="align-items-center justify-content-center">
+                <div
+                  class="d-flex font-size-12 align-items-center justify-content-center"
+                >
+                  <div class="p-2 ml-1-25">
+                    <img src="assets/icons/left.svg" />
+                  </div>
+                  <div class="d-flex flex-column width-100 text-center">
+                    <div class="p-0 font-weight-bold">October</div>
+                    <div class="p-0">2021</div>
+                  </div>
+                  <div class="ml-auto p-2 mr-1-25">
+                    <img src="assets/icons/right.svg" />
+                  </div>
+                </div>
+                <!-- <p class="font-size-12 m-0 mr-auto"><img src="assets/icons/left.svg"></p>
+                                <div class="col-4 mx-auto">
+                                    <p class="font-size-12 m-0 text-center">October</p>
+                                    <p class="font-size-12 m-0 text-center">2021</p>
+                                </div>
+                                <p class="font-size-12 m-0 ml-auto"><img src="assets/icons/right.svg"></p>-->
+              </div>
+            </div>
+            <!-- <input type="text" id="reach_goal" /> -->
           </div>
         </div>
         <!-- Monthly -->

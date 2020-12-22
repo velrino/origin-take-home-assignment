@@ -1,18 +1,17 @@
 /* Background colors */
 
 .bg-color-light-grayish-blue {
-  background-color: #f4f8fa;
+  background-color: $blueGray10;
 }
 
 .bg-color-white {
-  background-color: white;
+  background-color: $neutralWhite;
 }
 
 /* Border Color */
 
 .border-color-light-grayish-blue {
-  border-color: #e9eef2;
-  border: 1px solid #e9eef2;
+  border: 1px solid $blueGray50;
 }
 
 /* Border Style */
@@ -205,6 +204,14 @@
   }
 }
 
+/* Text Utilities */
+
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 /* Text Colors */
 
 .text-color-dark-blue {
@@ -212,11 +219,11 @@
 }
 
 .text-color-pure-blue {
-  color: #0079ff;
+  color: $brandColorSecondary;
 }
 
 .text-color-grey {
-  color: #708797;
+  color: $blueGray400;
 }
 
 /* Position */
@@ -233,14 +240,14 @@ label {
 }
 
 .input-form {
-  color: #4d6475;
+  color: $blueGray600;
   font-family: Rubik;
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
   line-height: 120%;
-  background: #ffffff;
-  border: 1px solid #e9eef2;
+  background: $neutralWhite;
+  border: 1px solid $blueGray50;
   box-sizing: border-box;
   border-radius: 4px;
   padding: 0.813rem;
@@ -265,7 +272,6 @@ label {
 }
 
 .input-icon > input {
-  // padding-left: 25px;
   padding-left: 2.75rem;
   padding-right: 0;
 }
@@ -311,16 +317,15 @@ label {
 
 .noselect {
   -webkit-touch-callout: none;
-  /* iOS Safari */
   -webkit-user-select: none;
-  /* Safari */
   -khtml-user-select: none;
-  /* Konqueror HTML */
   -moz-user-select: none;
-  /* Old versions of Firefox */
   -ms-user-select: none;
-  /* Internet Explorer/Edge */
   user-select: none;
-  /* Non-prefixed version, currently
-                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+button:disabled,
+button[disabled] {
+  background-color: $grey;
+  color: $greyLight;
 }

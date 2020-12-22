@@ -1,5 +1,9 @@
 /* Space */
 
+.mt-1 {
+  margin-top: 1rem !important;
+}
+
 .mt-3 {
   margin-top: 3rem !important;
 }
@@ -9,16 +13,24 @@
 }
 
 .pv-3 {
-  padding-top: 2rem !important;
-  padding-bottom: 2rem !important;
+  padding-top: 2.188rem !important;
+  padding-bottom: 2.188rem !important;
 }
 
 .ph-3 {
-  padding-left: 2rem !important;
-  padding-right: 2rem !important;
+  padding-left: 2.5rem !important;
+  padding-right: 2.5rem !important;
 }
 
 /* Text */
+
+.font-size-14 {
+  font-size: 14px;
+}
+
+.font-size-20 {
+  font-size: 20px;
+}
 
 .text-center {
   text-align: center !important;
@@ -41,4 +53,23 @@
   /* These two lines are counted as one :-)       */
   display: flex;
   align-items: center;
+}
+
+label {
+  display: block;
+}
+
+input {
+  color: #4d6475;
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 120%;
+  background: #ffffff;
+  border: 1px solid #e9eef2;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 0.813rem;
+  width: 100%;
 }

@@ -1,4 +1,10 @@
-import { Component, EventEmitter, HostListener, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  HostListener,
+  Output,
+  OnInit,
+} from '@angular/core';
 
 export enum KEY_CODE {
   RIGHT_ARROW = 'ArrowRight',
@@ -9,7 +15,7 @@ export enum KEY_CODE {
   templateUrl: './input-date.component.html',
   styleUrls: ['./input-date.component.scss'],
 })
-export class InputDateComponent {
+export class InputDateComponent implements OnInit {
   @Output() dateInformed = new EventEmitter<Date>();
   locale = 'en-US';
   todayDate: number = new Date().setHours(0, 0, 0, 0);
@@ -20,6 +26,10 @@ export class InputDateComponent {
 
   constructor() {
     this.handleDate(null);
+  }
+
+  ngOnInit(): void {
+    this.dateInformed.emit(this.actualDate);
   }
 
   calculateMonth(incrementMonth = true): void {

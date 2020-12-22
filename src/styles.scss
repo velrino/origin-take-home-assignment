@@ -22,9 +22,32 @@ h6 {
   margin: 0;
 }
 
-@media (max-width: 769px) {
+@media (max-width: 600px) {
+  .ml-sm-1 {
+    margin-left: 1rem !important;
+  }
+  .mt-sm-2 {
+    margin-top: 2rem !important;
+  }
   .mobile-without-padding {
     padding-left: 0;
     padding-right: 0;
   }
+  .pv-md-1 {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+}
+
+.navbar {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
 }

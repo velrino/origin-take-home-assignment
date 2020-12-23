@@ -61,7 +61,7 @@ export class InputDateComponent implements OnInit {
     return newActualDate;
   }
 
-  @HostListener('window:keyup', ['$event'])
+  @HostListener('document:keydown', ['$event'])
   listenKeyboardEvent(event: KeyboardEvent): void {
     if (event.key === KEY_CODE.RIGHT_ARROW) {
       this.calculateMonth();

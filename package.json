@@ -6,7 +6,7 @@
         "start": "ng serve",
         "dev": "ng serve",
         "build": "ng build --prod --base-href /origin-take-home-assignment/",
-        "test": "ng test",
+        "test": "ng test --no-watch --code-coverage",
         "lint": "ng lint",
         "e2e": "ng e2e",
         "deploy": "npm run build && npm run upload",

@@ -9,8 +9,9 @@ import { NavbarComponent } from './shared/component/navbar/navbar.component';
 import { SimulationPage } from './pages/simulation/simulation.page';
 
 const routes: Routes = [
-  { path: 'simulation', component: SimulationPage },
-  { path: '', redirectTo: 'simulation', pathMatch: 'full' },
+  { path: '', component: SimulationPage },
+  { path: '**', redirectTo: '' },
+  { path: '', redirectTo: '', pathMatch: 'full' },
 ];
 
 export const bootstrap = [AppComponent];

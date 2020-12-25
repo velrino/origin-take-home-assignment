@@ -50,6 +50,7 @@ export class InputDateComponent implements OnInit {
       date: this.actualDate,
       month: this.month,
       year: this.year,
+      monthsDiff: this.diffMonths(this.actualDate),
     });
   }
 
@@ -59,6 +60,12 @@ export class InputDateComponent implements OnInit {
     const newActualDate = date.setMonth(actualMonth);
 
     return newActualDate;
+  }
+
+  diffMonths(date: Date): number {
+    let diff = (date.getTime() - new Date().getTime()) / 1000;
+    diff /= 60 * 60 * 24 * 7 * 4;
+    return Math.abs(Math.round(diff));
   }
 
   @HostListener('document:keydown', ['$event'])

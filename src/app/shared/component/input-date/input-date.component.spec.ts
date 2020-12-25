@@ -5,6 +5,7 @@ import { NgxCurrencyModule } from 'ngx-currency';
 
 import { KEY_CODE } from '../../enums/keyboard';
 import { InputDateComponent } from './input-date.component';
+import { InputDateInformedDto } from 'src/app/shared/component/input-date/input-date-informed.interface';
 
 describe('InputDateComponent', () => {
   const locale = 'en-US';
@@ -157,6 +158,31 @@ describe('InputDateComponent', () => {
       const result = instance.incrementMonth(data.date, false, 3);
 
       expect(result === resultExpected.date.getTime()).toBeTrue();
+    });
+  });
+
+  describe('diffMonths', () => {
+    it('should diffMonths is same result', () => {
+      const fixture = TestBed.createComponent(InputDateComponent);
+      fixture.detectChanges();
+      const instance = fixture.componentInstance;
+      const resultExpected = {
+        amountByMonths: 0,
+        months: 14,
+      };
+      const date = new Date(
+        instance.incrementMonth(new Date(), true, resultExpected.months - 1)
+      );
+
+      const dateInformedData: InputDateInformedDto = {
+        date,
+        month: date.toLocaleString(locale, { month: 'long' }),
+        year: date.getFullYear(),
+        monthsDiff: 13,
+      };
+      const result = instance.diffMonths(dateInformedData.date);
+
+      expect(result === resultExpected.months).toBeTrue();
     });
   });
 });

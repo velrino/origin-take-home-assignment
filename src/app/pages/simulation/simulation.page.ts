@@ -26,25 +26,16 @@ export class SimulationPage {
   });
   amountByMonths = 0;
   dateInformedData: InputDateInformedDto;
-  months = 1;
 
   calculateGoalByMonth(): void {
     const goal = this.form.get('totalAmout')?.value;
-    if (goal > 0) {
-      this.amountByMonths = goal / this.months;
-    }
+    this.amountByMonths =
+      goal > 0 ? goal / this.dateInformedData.monthsDiff : 0;
   }
 
   inputDateChange(value: InputDateInformedDto): void {
     this.dateInformedData = value;
-    this.months = this.diffMonths(value.date);
     this.calculateGoalByMonth();
-  }
-
-  diffMonths(date: Date): number {
-    let diff = (date.getTime() - new Date().getTime()) / 1000;
-    diff /= 60 * 60 * 24 * 7 * 4;
-    return Math.abs(Math.round(diff));
   }
 
   formatMoney(amount: number): string {
